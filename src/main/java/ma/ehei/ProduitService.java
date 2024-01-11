@@ -66,7 +66,7 @@ public class ProduitService {
         }
         throw new IllegalArgumentException("Produit non trouvé pour la mise à jour");
     }
-fonctionnalite-delete-product
+
     public void DeleteProduit(Long id) throws IllegalArgumentException {
         Produit produitToDelete = null;
         for (Produit produit : produits) {
