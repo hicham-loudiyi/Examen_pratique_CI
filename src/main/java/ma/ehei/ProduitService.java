@@ -49,4 +49,21 @@ public class ProduitService {
         }
         return null; 
     }
+
+    public void UpdateProduit(Produit updatedProduit) throws IllegalArgumentException {
+        for (Produit produit : produits) {
+            if (produit.getId().equals(updatedProduit.getId())) {
+                if (updatedProduit.getPrix() >= 0 && updatedProduit.getQuantite() >= 0) {
+                    produit.setNom(updatedProduit.getNom());
+                    produit.setPrix(updatedProduit.getPrix());
+                    produit.setQuantite(updatedProduit.getQuantite());
+                    System.out.println("Produit mis à jour : " + produit.getNom());
+                } else {
+                    throw new IllegalArgumentException("Le prix et la quantité doivent être positifs pour la mise à jour du produit");
+                }
+                return;
+            }
+        }
+        throw new IllegalArgumentException("Produit non trouvé pour la mise à jour");
+    }
 }
