@@ -35,10 +35,10 @@ public class ProduitService {
                 produits.add(produit);
                 System.out.println("Produit ajoutee : " + produit.getNom());
             } else {
-                throw new IllegalArgumentException("Le prix et la quantitÃ© doivent Ãªtre positifs pour la creation du produit");
+                throw new IllegalArgumentException("Le prix et la quantitÃƒÂ© doivent ÃƒÂªtre positifs pour la creation du produit");
             }
         } else {
-            throw new IllegalArgumentException("Un produit avec le meme Id ou nom existe deja ");
+            throw new IllegalArgumentException("Un produit avec le meme Id ou nom existe dejaÂ ");
         }
     }
     public Produit ReadProduit(Long id) {
@@ -57,15 +57,16 @@ public class ProduitService {
                     produit.setNom(updatedProduit.getNom());
                     produit.setPrix(updatedProduit.getPrix());
                     produit.setQuantite(updatedProduit.getQuantite());
-                    System.out.println("Produit mis à jour : " + produit.getNom());
+                    System.out.println("Produit mis Ã  jour : " + produit.getNom());
                 } else {
-                    throw new IllegalArgumentException("Le prix et la quantité doivent être positifs pour la mise à jour du produit");
+                    throw new IllegalArgumentException("Le prix et la quantitÃ© doivent Ãªtre positifs pour la mise Ã  jour du produit");
                 }
                 return;
             }
         }
-        throw new IllegalArgumentException("Produit non trouvé pour la mise à jour");
+        throw new IllegalArgumentException("Produit non trouvÃ© pour la mise Ã  jour");
     }
+fonctionnalite-delete-product
     public void DeleteProduit(Long id) throws IllegalArgumentException {
         Produit produitToDelete = null;
         for (Produit produit : produits) {
@@ -76,9 +77,9 @@ public class ProduitService {
         }
         if (produitToDelete != null) {
             produits.remove(produitToDelete);
-            System.out.println("Produit supprimé");
+            System.out.println("Produit supprimÃ©");
         } else {
-            throw new IllegalArgumentException("Aucun produit trouvé pour la suppression");
+            throw new IllegalArgumentException("Aucun produit trouvÃ© pour la suppression");
         }
     }
 }
