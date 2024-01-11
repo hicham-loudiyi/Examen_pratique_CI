@@ -33,12 +33,20 @@ public class ProduitService {
         if (!produitExists(produit.getId(), produit.getNom())) {
             if (produit.getPrix() >= 0 && produit.getQuantite() >= 0) {
                 produits.add(produit);
-                System.out.println("Produit ajouté : " + produit.getNom());
+                System.out.println("Produit ajoutee : " + produit.getNom());
             } else {
-                throw new IllegalArgumentException("Le prix et la quantité doivent être positifs pour la création du produit");
+                throw new IllegalArgumentException("Le prix et la quantité doivent être positifs pour la creation du produit");
             }
         } else {
-            throw new IllegalArgumentException("Un produit avec le même Id ou nom existe déjà");
+            throw new IllegalArgumentException("Un produit avec le meme Id ou nom existe deja�");
         }
+    }
+    public Produit ReadProduit(Long id) {
+        for (Produit produit : produits) {
+            if (produit.getId().equals(id)) {
+                return produit;
+            }
+        }
+        return null; 
     }
 }
